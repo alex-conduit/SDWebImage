@@ -7,7 +7,7 @@
 //
 
 #import "UIImage+MultiFormat.h"
-#import "UIImage+GIF.h"
+#import "YLGIFImage.h"
 #import "NSData+ImageContentType.h"
 
 #ifdef SD_WEBP
@@ -20,7 +20,7 @@
     UIImage *image;
     NSString *imageContentType = [NSData contentTypeForImageData:data];
     if ([imageContentType isEqualToString:@"image/gif"]) {
-        image = [UIImage sd_animatedGIFWithData:data];
+        image = [YLGIFImage imageWithData:data];
     }
 #ifdef SD_WEBP
     else if ([imageContentType isEqualToString:@"image/webp"])
